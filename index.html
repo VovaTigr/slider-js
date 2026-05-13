@@ -9,11 +9,6 @@
             width: calc(1920px / 2);
             filter: saturate(10px);
             box-shadow: 5px 5px 10px black;
-            transition: 1s all ease-in-out;
-        }
-
-        #slider:hover {
-            filter: blur(0);
         }
 
         div {
@@ -23,7 +18,7 @@
             justify-content: center;
         }
 
-        #buttonDiv {
+        #buttonDiv, #buttonDiv2 {
             display: inline-block;
             margin: 15px;
         }
@@ -32,6 +27,10 @@
             width: 50px;
             height: 30px;
             font-size: 20px;
+        }
+
+        #buttonAuto, #buttonStop {
+            font-size: 15px;
         }
     </style>
 </head>
@@ -43,6 +42,10 @@
             <button id="buttonPrev" onclick="prev()" class="but">&lt;</button>
             <button id="buttonNext" onclick="next()" class="but">&gt;</button>
         </div> 
+        <div id="buttonDiv2">
+            <button id="buttonAuto" onclick="automatic()" class="but">Auto</button>
+            <button id="buttonStop" onclick="stop()" class="but">Stop</button>
+        </div>    
     </div>
     <script src="script.js"></script>
 </body>

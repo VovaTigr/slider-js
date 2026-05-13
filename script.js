@@ -6,11 +6,14 @@ const slides = [
     'images/5.jpg'
 ]
 
+const buttonPrev = document.getElementById('buttonPrev')
 const slider = document.getElementById('slider')
 
 let i = 0
+let timer;
 
 function prev() {
+    stop()
     if (i > 0) {
         i--
     } else {
@@ -20,10 +23,29 @@ function prev() {
 }
 
 function next() {
+    stop()
     if (i < slides.length - 1) {
         i++
     } else {
         i = 0
     }
     slider.setAttribute('src', slides[i])
+}
+
+function automatic() {
+    stop()
+    function change() {
+        if (i < slides.length - 1) {
+            i++
+        } else {
+            i = 0
+        }
+        slider.setAttribute('src', slides[i])
+    }
+
+    timer = setInterval(change, 1000)
+}
+
+function stop() {
+    clearInterval(timer)
 }
