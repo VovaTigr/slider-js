@@ -6,14 +6,13 @@ const slides = [
     'images/5.jpg'
 ]
 
-const buttonPrev = document.getElementById('buttonPrev')
 const slider = document.getElementById('slider')
+const effect = "fade";
 
 let i = 0
-let timer;
 
 function prev() {
-    stop()
+    stop() 
     if (i > 0) {
         i--
     } else {
@@ -23,13 +22,23 @@ function prev() {
 }
 
 function next() {
-    stop()
-    if (i < slides.length - 1) {
-        i++
-    } else {
-        i = 0
-    }
-    slider.setAttribute('src', slides[i])
+  // if (i < slides.length - 1) {
+  //     i++
+  // } else {
+  //     i = 0
+  // }
+  // slider.setAttribute('src', slides[i])
+  addEffect(); // додаємо ефект fade (клас fade)
+  t = setTimeout(changeNext, 500); // виконаємо функцію changeNext через 500 мс
+  t = setTimeout(removeEffect, 1000); // виконаємо функцію removeEffect через 1000 мс
+}
+
+function changeNext() {
+  i++;
+  if (i >= slides.length) {
+    i = 0;
+  }
+  slider.setAttribute("src", slides[i]);
 }
 
 function automatic() {
@@ -43,9 +52,17 @@ function automatic() {
         slider.setAttribute('src', slides[i])
     }
 
-    timer = setInterval(change, 1000)
+    timer = setInterval(change, 1500)
 }
 
 function stop() {
     clearInterval(timer)
+}
+
+function addEffect() {
+  slider.classList.add(effect);
+}
+
+function removeEffect() {
+  slider.classList.remove(effect);
 }

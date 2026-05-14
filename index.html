@@ -9,6 +9,11 @@
             width: calc(1920px / 2);
             filter: saturate(10px);
             box-shadow: 5px 5px 10px black;
+            transition: all 0.5 ease-in-out;
+        }
+
+        #slider:hover {
+            filter: blur(2px); /* ефект blur не 0 */
         }
 
         div {
@@ -31,6 +36,15 @@
 
         #buttonAuto, #buttonStop {
             font-size: 15px;
+        }
+
+         .fade {
+            opacity: 0 !important;
+        }
+
+        /* Клас для ефекту go */
+        .go {
+            left: 520px !important;
         }
     </style>
 </head>
